@@ -4,6 +4,7 @@ import { DataSource } from "typeorm";
 import { Services1719851655446 } from "./migrations/1719851655446-services";
 import { Services } from "./models/Services";
 import { Roles1719851618943 } from "./migrations/1719851618943-roles";
+import { Roles } from "./models/Roles";
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -12,7 +13,7 @@ export const AppDataSource = new DataSource({
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
-    entities: [Services],
+    entities: [Services, Roles],
     migrations: [Services1719851655446,Roles1719851618943],
     synchronize: false,
     logging: false,
