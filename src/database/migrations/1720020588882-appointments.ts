@@ -45,19 +45,17 @@ export class Appointments1720020588882 implements MigrationInterface {
                         columnNames: ["user_id"],
                         referencedTableName: "users",
                         referencedColumnNames: ["id"],
-                        onDelete: "CASCADE"
                     },
                     {
                         columnNames: ["service_id"],
                         referencedTableName: "services",
                         referencedColumnNames: ["id"],
-                        onDelete: "CASCADE"
                     },
                 ],
                 uniques: [
                     new TableUnique({
                         name: "user_service_unique",
-                        columnNames: ["date", "user_id", "service_id"]
+                        columnNames: ["user_id", "service_id"]
                     }),
                 ],
             }),

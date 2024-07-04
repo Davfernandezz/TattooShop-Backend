@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import { AppDataSource } from './database/db';
+import { createServices, deleteServicesById, getServices, updateServicesById } from './controllers/services.controller';
 
 const app = express();
 
@@ -18,3 +19,19 @@ AppDataSource.initialize()
     .catch(error => {
         console.log(error)
     })
+
+    
+    
+    //SERVICES
+
+    //POST
+    app.post('/services', createServices) 
+
+    //GET
+    app.get('/services', getServices) 
+    
+    //UPDATE
+    app.put('/services/:id', updateServicesById)
+
+    //DELETE
+    app.delete('/services/:id', deleteServicesById)
