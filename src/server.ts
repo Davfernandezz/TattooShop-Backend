@@ -2,6 +2,8 @@ import 'dotenv/config';
 import express from 'express';
 import { AppDataSource } from './database/db';
 import { createServices, deleteServicesById, getServices, updateServicesById } from './controllers/services.controller';
+import { getUsers } from './controllers/users.controller';
+import { login, register } from './controllers/auth.controller';
 
 const app = express();
 
@@ -20,18 +22,30 @@ AppDataSource.initialize()
         console.log(error)
     })
 
-    
-    
-    //SERVICES
 
-    //POST
-    app.post('/services', createServices) 
+//SERVICES
 
-    //GET
-    app.get('/services', getServices) 
-    
-    //UPDATE
-    app.put('/services/:id', updateServicesById)
+//POST
+app.post('/api/services', createServices)
 
-    //DELETE
-    app.delete('/services/:id', deleteServicesById)
+//GET
+app.get('/api/services', getServices)
+
+//UPDATE
+app.put('/api/services/:id', updateServicesById)
+
+//DELETE
+app.delete('/api/services/:id', deleteServicesById)
+
+
+// AUTHENTICATION 
+
+//POST
+app.post('/api/register', register)    
+app.post('/api/login', login) 
+
+
+// USERS
+
+//GET
+app.get('/api/users', getUsers)
