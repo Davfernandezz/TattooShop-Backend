@@ -86,7 +86,7 @@ export const updateServicesById = async (req: Request, res: Response) => {
         const body = req.body
 
         //2.actualizar en base de datos
-        const authorUpdated = await Services.update(
+        const serviceUpdated = await Services.update(
             {
                 id: parseInt(serviceIdToUpdate)
             },
@@ -98,7 +98,7 @@ export const updateServicesById = async (req: Request, res: Response) => {
             {
                 success: true,
                 message: "service updated",
-                data: authorUpdated
+                data: serviceUpdated
             }
         )
     } catch (error) {
@@ -128,7 +128,7 @@ export const deleteServicesById = async (req: Request, res: Response) => {
             return res.status(404).json(
                 {
                     success: false,
-                    message: "Service does not exist"
+                    message: "service does not exist"
                 }
             )
         }
@@ -136,7 +136,7 @@ export const deleteServicesById = async (req: Request, res: Response) => {
         //3.responder
         return res.status(200).json({
             success: true,
-            message: "Service deleted successfully",
+            message: "service deleted successfully",
             data: serviceDeleted
         })
 
@@ -144,7 +144,7 @@ export const deleteServicesById = async (req: Request, res: Response) => {
         res.status(500).json(
             {
                 success: false,
-                message: "Error deleting service! Please, try again!",
+                message: "error deleting service! Please, try again!",
                 error: error
             }
         )

@@ -2,8 +2,9 @@ import 'dotenv/config';
 import express from 'express';
 import { AppDataSource } from './database/db';
 import { createServices, deleteServicesById, getServices, updateServicesById } from './controllers/services.controller';
-import { getUsers } from './controllers/users.controller';
+import { getUserProfile, getUsers, updateUserProfile } from './controllers/users.controller';
 import { login, register } from './controllers/auth.controller';
+import { auth } from './middlewares/auth';
 
 const app = express();
 
@@ -29,13 +30,13 @@ AppDataSource.initialize()
 app.post('/api/services', createServices)
 
 //GET
-app.get('/api/services', getServices)
+app.get('/api/services',auth, getServices)
 
 //UPDATE
-app.put('/api/services/:id', updateServicesById)
+app.put('/api/services/:id',auth, updateServicesById)
 
 //DELETE
-app.delete('/api/services/:id', deleteServicesById)
+app.delete('/api/services/:id',auth, deleteServicesById)
 
 
 // AUTHENTICATION 
@@ -48,4 +49,8 @@ app.post('/api/login', login)
 // USERS
 
 //GET
-app.get('/api/users', getUsers)
+app.get('/api/users',auth, getUsers)
+app.get('/api/users/profile',auth, getUserProfile)
+
+//PUT
+app.put('/api/profile/update/:id',auth, updateUserProfile)
