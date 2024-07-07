@@ -5,6 +5,7 @@ import { createServices, deleteServicesById, getServices, updateServicesById } f
 import { getUserProfile, getUsers, updateUserProfile } from './controllers/users.controller';
 import { login, register } from './controllers/auth.controller';
 import { auth } from './middlewares/auth';
+import { isAdmin } from './middlewares/isAdmin';
 
 const app = express();
 
@@ -30,13 +31,13 @@ AppDataSource.initialize()
 app.post('/api/services', createServices)
 
 //GET
-app.get('/api/services',auth, getServices)
+app.get('/api/services',auth, isAdmin, getServices)
 
 //UPDATE
-app.put('/api/services/:id',auth, updateServicesById)
+app.put('/api/services/:id',auth, isAdmin, updateServicesById)
 
 //DELETE
-app.delete('/api/services/:id',auth, deleteServicesById)
+app.delete('/api/services/:id',auth, isAdmin, deleteServicesById)
 
 
 // AUTHENTICATION 
@@ -49,7 +50,7 @@ app.post('/api/login', login)
 // USERS
 
 //GET
-app.get('/api/users',auth, getUsers)
+app.get('/api/users',auth, isAdmin, getUsers)
 app.get('/api/users/profile',auth, getUserProfile)
 
 //PUT
