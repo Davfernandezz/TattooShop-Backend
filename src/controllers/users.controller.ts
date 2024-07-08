@@ -44,12 +44,15 @@ export const getUserProfile = async (req: Request, res: Response) => {
         //2.buscarlo en la base de datos
         const user = await Users.findOne(
             {
+                select: {
+                    email: true,
+                    created_at: true,
+                },
                 where: {
                     id: userId
                 }
             }
         )
-
         //3.responder
         res.json(
             {

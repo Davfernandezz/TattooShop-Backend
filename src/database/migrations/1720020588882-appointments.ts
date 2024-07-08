@@ -17,14 +17,17 @@ export class Appointments1720020588882 implements MigrationInterface {
                     {
                         name: "date",
                         type: "datetime",
+                        isNullable: false
                     },
                     {
                         name: "user_id",
                         type: "int",
+                        isNullable: false
                     },
                     {
                         name: "service_id",
                         type: "int",
+                        isNullable: false
                     },
                 ],
                 foreignKeys: [
@@ -38,12 +41,6 @@ export class Appointments1720020588882 implements MigrationInterface {
                         referencedTableName: "services",
                         referencedColumnNames: ["id"],
                     },
-                ],
-                uniques: [
-                    new TableUnique({
-                        name: "user_service_unique",
-                        columnNames: ["user_id", "service_id"]
-                    }),
                 ],
             }),
             true

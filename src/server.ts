@@ -6,6 +6,7 @@ import { getUserProfile, getUsers, updateUserProfile } from './controllers/users
 import { login, register } from './controllers/auth.controller';
 import { auth } from './middlewares/auth';
 import { isAdmin } from './middlewares/isAdmin';
+import { createAppointments } from './controllers/appointments.controller';
 
 const app = express();
 
@@ -55,3 +56,10 @@ app.get('/api/users/profile',auth, getUserProfile)
 
 //PUT
 app.put('/api/profile/update/:id',auth, updateUserProfile)
+
+
+//APPOINTMETS
+
+//POST
+app.post('/api/appointments/create', auth, createAppointments)  
+
