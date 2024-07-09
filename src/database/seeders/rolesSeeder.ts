@@ -4,7 +4,7 @@ import { Roles } from "../models/Roles";
 export const rolesSeeder = async () => {
     try {
         await AppDataSource.initialize();
-        
+
         const user = new Roles();
         user.id = 1;
         user.name = "user";
@@ -23,7 +23,7 @@ export const rolesSeeder = async () => {
         console.log("==========================");
         console.log("Roles seeder successfully");
         console.log("==========================");
-        
+
     } catch (error: any) {
         console.error("==========================");
         console.error('ERROR ROLE SEEDER', error.message);
