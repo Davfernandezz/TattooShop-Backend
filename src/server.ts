@@ -6,7 +6,7 @@ import { getUserProfile, getUsers, updateUserProfile } from './controllers/users
 import { login, register } from './controllers/auth.controller';
 import { auth } from './middlewares/auth';
 import { isAdmin } from './middlewares/isAdmin';
-import { createAppointments } from './controllers/appointments.controller';
+import { createAppointments, getAppointmentdById, getAppointmentUser, updateAppointments } from './controllers/appointments.controller';
 
 const app = express();
 
@@ -63,3 +63,9 @@ app.put('/api/profile/update/:id',auth, updateUserProfile)
 //POST
 app.post('/api/appointments/create', auth, createAppointments)  
 
+//UPDATE
+app.put('/api/appointments/change/:id', auth, updateAppointments)   
+
+//GET
+app.get('/api/appointments/:id', auth, getAppointmentdById)      
+app.get('/api/appointments/user', auth, getAppointmentUser) 
