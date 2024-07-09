@@ -5,20 +5,20 @@ export const rolesSeeder = async () => {
     try {
         await AppDataSource.initialize();
 
-        const user = new Roles();
-        user.id = 1;
-        user.name = "user";
-        await user.save();
+        const userRole = new Roles();
+        userRole.id = 1;
+        userRole.name = "user";
+        await userRole.save();
 
-        const admin = new Roles();
-        admin.id = 2;
-        admin.name = "admin";
-        await admin.save();
+        const adminRole = new Roles();
+        adminRole.id = 2;
+        adminRole.name = "admin";
+        await adminRole.save();
 
-        const tatuador = new Roles();
-        tatuador.id = 3;
-        tatuador.name = "tatuador";
-        await tatuador.save();
+        const tatuadorRole = new Roles();
+        tatuadorRole.id = 3;
+        tatuadorRole.name = "tatuador";
+        await tatuadorRole.save();
 
         console.log("==========================");
         console.log("Roles seeder successfully");
