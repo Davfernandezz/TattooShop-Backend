@@ -1,4 +1,6 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { Users } from "./Users"
+import { Services } from "./Services"
 
 @Entity('appointments')
 export class Appointments extends BaseEntity{
@@ -15,10 +17,11 @@ export class Appointments extends BaseEntity{
     @Column({name: 'service_id'})
     service_id!: number
 
-    @Column({name: 'created_at'})
-    created_at!: Date
+    @ManyToOne(() => Users,(users) => users.appointments)
+    @JoinColumn ({ name: "user_id"})
+    users!: Users;
 
-    @Column({name: 'updated_at'})
-    updated_at!: Date
-
+    @ManyToOne(() => Services, (services) => services.appointments)
+    @JoinColumn({name: "service_id"})
+    services!: Services
 }

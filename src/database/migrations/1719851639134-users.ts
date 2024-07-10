@@ -41,7 +41,18 @@ export class Users1719851639134 implements MigrationInterface {
                     },
                     {
                         name: "role_id",
-                        type: "int"
+                        type: "int",
+                        default: 1
+                    },
+                    {
+                        name: "created_at",
+                        type: "datetime",
+                        default: "now()"
+                    },
+                    {
+                        name: "updated_at",
+                        type: "datetime",
+                        default: "now()",
                     },
                 ], foreignKeys: [
                     {

@@ -1,0 +1,279 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "TattooShopCollection",
+    "collectionId": "82c41b4a-6257-47e5-978e-8e8d4bd22fb8",
+    "dateExported": "2024-07-10T14:35:02.667Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "bc10f310-33a4-40b7-a7f5-94274db95cbc",
+            "name": "Services",
+            "containerId": "",
+            "created": "2024-07-04T13:08:49.673Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "b2acd7b7-99ee-4a0b-9b43-d6d5c5574d7a",
+            "name": "Register and Login",
+            "containerId": "",
+            "created": "2024-07-05T13:57:17.558Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "ee383979-8387-4215-95bf-4350a2883802",
+            "name": "Users",
+            "containerId": "",
+            "created": "2024-07-05T14:57:23.044Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "3413d79a-27b1-47d2-8fae-fa06a97e18bb",
+            "name": "Appointments",
+            "containerId": "",
+            "created": "2024-07-08T15:18:21.454Z",
+            "sortNum": 40000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "e0e719a8-96b9-49d5-92b0-5c9755df70b1",
+            "colId": "82c41b4a-6257-47e5-978e-8e8d4bd22fb8",
+            "containerId": "bc10f310-33a4-40b7-a7f5-94274db95cbc",
+            "name": "Services POST",
+            "url": "http://localhost:4000/api/services",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-07-04T13:09:08.466Z",
+            "modified": "2024-07-09T13:55:54.609Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"service_name\": \"Restauración y rejuvenecimiento de trabajos\",\n  \"description\": \"Nos especializamos en la restauración y rejuvenecimiento de tatuajes existentes. Nuestros expertos trabajan para mejorar y renovar tatuajes antiguos, devolviéndoles su vitalidad.\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZV9pZCI6MSwiZW1haWwiOiJkYXZpZEBkYXZpZC5jb20iLCJpYXQiOjE3MjA1MzMyNTAsImV4cCI6MTcyMDU0MDQ1MH0.Pgxu7UAn8ZY1xcpsVfqzQGVtkQ3_vyajcMk56opHMcQ"
+            }
+        },
+        {
+            "_id": "7cd17cb2-8c08-4a41-8224-192a242cf0a0",
+            "colId": "82c41b4a-6257-47e5-978e-8e8d4bd22fb8",
+            "containerId": "bc10f310-33a4-40b7-a7f5-94274db95cbc",
+            "name": "Services GET",
+            "url": "http://localhost:4000/api/services",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-07-04T13:17:16.429Z",
+            "modified": "2024-07-10T14:22:23.891Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZV9pZCI6MiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3MjA2MjEyMzgsImV4cCI6MTcyMDYyODQzOH0.8rsOx4GEiaoooBZCcra35oZ5uBMxgzmJKzVt2aoQpsA"
+            }
+        },
+        {
+            "_id": "6c7da243-d7f3-4f8d-a005-7b17e472ce2c",
+            "colId": "82c41b4a-6257-47e5-978e-8e8d4bd22fb8",
+            "containerId": "bc10f310-33a4-40b7-a7f5-94274db95cbc",
+            "name": "Services PUT",
+            "url": "http://localhost:4000/api/services/4",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-07-04T13:18:00.184Z",
+            "modified": "2024-07-06T13:58:34.840Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"service_name\": \"FUNCIONA\",\n  \"description\": \"FUNCIONA\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZV9pZCI6MSwiZW1haWwiOiJqdWFuQGp1YW4uY29tIiwiaWF0IjoxNzIwMjc0MTUwLCJleHAiOjE3MjAyODEzNTB9.PrR83XrXlCyQ5ZQ_6ou0_QxhBrPVd_mQwIQMcemMqrg"
+            }
+        },
+        {
+            "_id": "1d10df4e-f6e5-4fd4-8e4f-9a00f2f3d27b",
+            "colId": "82c41b4a-6257-47e5-978e-8e8d4bd22fb8",
+            "containerId": "bc10f310-33a4-40b7-a7f5-94274db95cbc",
+            "name": "Services DELETE",
+            "url": "http://localhost:4000/api/services/4",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-07-04T13:20:19.383Z",
+            "modified": "2024-07-06T13:59:06.593Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZV9pZCI6MSwiZW1haWwiOiJqdWFuQGp1YW4uY29tIiwiaWF0IjoxNzIwMjc0MTUwLCJleHAiOjE3MjAyODEzNTB9.PrR83XrXlCyQ5ZQ_6ou0_QxhBrPVd_mQwIQMcemMqrg"
+            }
+        },
+        {
+            "_id": "957536af-5369-44b1-a796-941c6cbb6a79",
+            "colId": "82c41b4a-6257-47e5-978e-8e8d4bd22fb8",
+            "containerId": "b2acd7b7-99ee-4a0b-9b43-d6d5c5574d7a",
+            "name": "Register POST",
+            "url": "http://localhost:4000/api/register",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-07-05T13:57:41.079Z",
+            "modified": "2024-07-09T13:54:01.138Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"david@david.com\",\n  \"password_hash\": \"123456789\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "$2b$10$P/XF7gqqMM/QPB/w8sBfr..QvLMPQ4B5ugWm4gIWpHjUHnPJ/iaMm"
+            }
+        },
+        {
+            "_id": "99c4a6eb-1e68-4d3a-8960-5795ae3c6559",
+            "colId": "82c41b4a-6257-47e5-978e-8e8d4bd22fb8",
+            "containerId": "b2acd7b7-99ee-4a0b-9b43-d6d5c5574d7a",
+            "name": "Login POST",
+            "url": "http://localhost:4000/api/login",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-07-05T14:32:15.670Z",
+            "modified": "2024-07-10T07:25:13.076Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"admin@admin.com\",\n  \"password_hash\": \"123456789\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "d04dd966-9574-4b7c-9fa0-47973230669d",
+            "colId": "82c41b4a-6257-47e5-978e-8e8d4bd22fb8",
+            "containerId": "ee383979-8387-4215-95bf-4350a2883802",
+            "name": "Users GET",
+            "url": "http://localhost:4000/api/users",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-07-05T14:57:38.174Z",
+            "modified": "2024-07-10T14:34:35.121Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZV9pZCI6MiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3MjA2MjEyMzgsImV4cCI6MTcyMDYyODQzOH0.8rsOx4GEiaoooBZCcra35oZ5uBMxgzmJKzVt2aoQpsA"
+            }
+        },
+        {
+            "_id": "2887cddb-4da8-49c0-97c3-463216c0d73d",
+            "colId": "82c41b4a-6257-47e5-978e-8e8d4bd22fb8",
+            "containerId": "ee383979-8387-4215-95bf-4350a2883802",
+            "name": "Users Profile GET",
+            "url": "http://localhost:4000/api/users/profile",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2024-07-06T13:27:22.518Z",
+            "modified": "2024-07-10T14:34:41.742Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZV9pZCI6MiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3MjA2MjEyMzgsImV4cCI6MTcyMDYyODQzOH0.8rsOx4GEiaoooBZCcra35oZ5uBMxgzmJKzVt2aoQpsA"
+            }
+        },
+        {
+            "_id": "1bfb37d7-e509-4de0-9b60-b0710d7304a2",
+            "colId": "82c41b4a-6257-47e5-978e-8e8d4bd22fb8",
+            "containerId": "ee383979-8387-4215-95bf-4350a2883802",
+            "name": "User UPDATE",
+            "url": "http://localhost:4000/api/profile/update/1",
+            "method": "PUT",
+            "sortNum": 110000,
+            "created": "2024-07-06T13:34:54.766Z",
+            "modified": "2024-07-10T14:34:07.331Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"first_name\": \"Carlos\",\n    \"last_name\": \"Leon\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZV9pZCI6MSwiZW1haWwiOiJjYXJsb3NAY2FybG9zY29tIiwiaWF0IjoxNzIwMjcyNzE4LCJleHAiOjE3MjAyNzk5MTh9.xa1yZqP6x0mLOZ356ikd7DBzZnaLKwW63en8-6EuKkc"
+            }
+        },
+        {
+            "_id": "bc243e42-dd36-4c23-a89c-387552f36ef1",
+            "colId": "82c41b4a-6257-47e5-978e-8e8d4bd22fb8",
+            "containerId": "3413d79a-27b1-47d2-8fae-fa06a97e18bb",
+            "name": "Appointments POST",
+            "url": "http://localhost:4000/api/appointments/create",
+            "method": "POST",
+            "sortNum": 140000,
+            "created": "2024-07-08T15:49:08.712Z",
+            "modified": "2024-07-10T14:21:15.740Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"date\": \"2024/07/10\",\n  \"service_id\": \"1\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZV9pZCI6MiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3MjA2MjEyMzgsImV4cCI6MTcyMDYyODQzOH0.8rsOx4GEiaoooBZCcra35oZ5uBMxgzmJKzVt2aoQpsA"
+            }
+        },
+        {
+            "_id": "5ad50d4d-c02a-49d8-8f18-401e9434229c",
+            "colId": "82c41b4a-6257-47e5-978e-8e8d4bd22fb8",
+            "containerId": "3413d79a-27b1-47d2-8fae-fa06a97e18bb",
+            "name": "Appointments UPDATE",
+            "url": "http://localhost:4000/api/appointments/change/1",
+            "method": "PUT",
+            "sortNum": 180000,
+            "created": "2024-07-09T14:05:07.339Z",
+            "modified": "2024-07-10T14:33:52.255Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"date\": \"2024/07/08\",\n  \"service_id\": \"3\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZV9pZCI6MSwiZW1haWwiOiJkYXZpZEBkYXZpZC5jb20iLCJpYXQiOjE3MjA1MzMyNTAsImV4cCI6MTcyMDU0MDQ1MH0.Pgxu7UAn8ZY1xcpsVfqzQGVtkQ3_vyajcMk56opHMcQ"
+            }
+        },
+        {
+            "_id": "3502a7ad-bf22-40d0-9c3e-5ccbbc32d959",
+            "colId": "82c41b4a-6257-47e5-978e-8e8d4bd22fb8",
+            "containerId": "3413d79a-27b1-47d2-8fae-fa06a97e18bb",
+            "name": "Appointments By Id GET",
+            "url": "http://localhost:4000/api/appointments/1",
+            "method": "GET",
+            "sortNum": 190000,
+            "created": "2024-07-09T14:34:41.532Z",
+            "modified": "2024-07-10T14:21:28.291Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZV9pZCI6MiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3MjA2MjEyMzgsImV4cCI6MTcyMDYyODQzOH0.8rsOx4GEiaoooBZCcra35oZ5uBMxgzmJKzVt2aoQpsA"
+            }
+        },
+        {
+            "_id": "aabf9072-e818-4307-a3d9-65f593714d76",
+            "colId": "82c41b4a-6257-47e5-978e-8e8d4bd22fb8",
+            "containerId": "3413d79a-27b1-47d2-8fae-fa06a97e18bb",
+            "name": "Appointments User GET",
+            "url": "http://localhost:4000/api/appointments/user",
+            "method": "GET",
+            "sortNum": 200000,
+            "created": "2024-07-09T14:35:52.972Z",
+            "modified": "2024-07-10T14:20:47.509Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZV9pZCI6MiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE3MjA2MjEyMzgsImV4cCI6MTcyMDYyODQzOH0.8rsOx4GEiaoooBZCcra35oZ5uBMxgzmJKzVt2aoQpsA"
+            }
+        }
+    ],
+    "ref": "duYj05wSnthIdm9d2w8cCPX6bdQRllVqKK1K92qYFtfs_i-iiCtxMGhpdHTZdEHK0JQOXKfjezHKkxmB-ZIj0g"
+}

@@ -29,36 +29,18 @@ export class Appointments1720020588882 implements MigrationInterface {
                         type: "int",
                         isNullable: false
                     },
-                    {
-                        name: "created_at",
-                        type: "datetime",
-                        default: "now()"
-                    },
-                    {
-                        name: "updated_at",
-                        type: "datetime",
-                        default: "now()",
-                    },
                 ],
                 foreignKeys: [
                     {
                         columnNames: ["user_id"],
                         referencedTableName: "users",
                         referencedColumnNames: ["id"],
-                        onDelete: "CASCADE"
                     },
                     {
                         columnNames: ["service_id"],
                         referencedTableName: "services",
                         referencedColumnNames: ["id"],
-                        onDelete: "CASCADE"
                     },
-                ],
-                uniques: [
-                    new TableUnique({
-                        name: "user_service_unique",
-                        columnNames: ["date", "user_id", "service_id"]
-                    }),
                 ],
             }),
             true
