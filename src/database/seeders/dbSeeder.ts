@@ -1,3 +1,4 @@
+import { appointmentsSeeder } from "./appointmentsSeeder";
 import { rolesSeeder } from "./rolesSeeder";
 import { servicesSeeder } from "./servicesSeeder";
 import { usersSeeder } from "./usersSeeder";
@@ -7,4 +8,5 @@ import { usersSeeder } from "./usersSeeder";
     await rolesSeeder();
     await servicesSeeder();
     await usersSeeder();
+    await appointmentsSeeder();
 })();

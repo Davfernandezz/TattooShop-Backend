@@ -158,21 +158,32 @@ export const getAppointmentdById = async (req: Request, res: Response) => {
 
 //GET
 
-export const getAppointmentUser = async (req: Request, res: Response) => {
+export const getAppointmentsUser = async (req: Request, res: Response) => {
     try {
         //1.recuperar informacion
         const userId = req.tokenData.id;
 
-        const appointments = await Appointments.findOne(
+        const appointments = await Appointments.find(
             {
-
+                select: {
+                    id: true,
+                    date: true,
+                    users: {
+                        id: true,
+                        email: true
+                    },
+                    services: {
+                        id: true,
+                        service_name: true
+                    },
+                },
                 where:
                 {
-                    id: userId
+                    user_id: userId
                 },
 
+                relations: { users: {}, services: {} }
             }
-
         );
 
         res.status(200).json(
