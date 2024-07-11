@@ -3,36 +3,36 @@ import { Roles } from "./Roles"
 import { Appointments } from "./Appointments"
 
 @Entity('users')
-export class Users extends BaseEntity{
+export class Users extends BaseEntity {
 
     @PrimaryGeneratedColumn()
     id!: number
 
-    @Column({ name: 'first_name'})
+    @Column({ name: 'first_name' })
     first_name!: string
 
-    @Column({name: 'last_name'})
+    @Column({ name: 'last_name' })
     last_name!: string
 
-    @Column({name: 'email'})
+    @Column({ name: 'email' })
     email!: string
 
-    @Column({name: 'password_hash'})
+    @Column({ name: 'password_hash' })
     password_hash!: string
 
-    @Column({name: 'role_id'})
+    @Column({ name: 'role_id' })
     role_id!: number
 
-    @Column({name: "created_at"})
+    @Column({ name: "created_at" })
     created_at!: Date
 
-    @Column({name: "updated_at"})
+    @Column({ name: "updated_at" })
     updated_at!: Date
 
-    @ManyToOne (() => Roles, (roles) => roles.users)
-    @JoinColumn ({ name: "role_id"})
+    @ManyToOne(() => Roles, (roles) => roles.users)
+    @JoinColumn({ name: "role_id" })
     roles!: Roles;
-    
-    @OneToMany (() => Appointments, (appointments) => appointments.users)
+
+    @OneToMany(() => Appointments, (appointments) => appointments.users)
     appointments!: Users[];
 }

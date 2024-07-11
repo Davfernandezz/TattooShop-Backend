@@ -32,40 +32,40 @@ AppDataSource.initialize()
 app.post('/api/services', createServices)
 
 //GET
-app.get('/api/services',auth, isAdmin, getServices)
+app.get('/api/services', auth, isAdmin, getServices)
 
 //UPDATE
-app.put('/api/services/:id',auth, isAdmin, updateServicesById)
+app.put('/api/services/:id', auth, isAdmin, updateServicesById)
 
 //DELETE
-app.delete('/api/services/:id',auth, isAdmin, deleteServicesById)
+app.delete('/api/services/:id', auth, isAdmin, deleteServicesById)
 
 
 // AUTHENTICATION 
 
 //POST
-app.post('/api/register', register)    
-app.post('/api/login', login) 
+app.post('/api/register', register)
+app.post('/api/login', login)
 
 
 // USERS
 
 //GET
-app.get('/api/users',auth, isAdmin, getUsers)
-app.get('/api/users/profile',auth, getUserProfile)
+app.get('/api/users', auth, isAdmin, getUsers)
+app.get('/api/users/profile', auth, getUserProfile)
 
 //PUT
-app.put('/api/profile/update/:id',auth, updateUserProfile)
+app.put('/api/profile/update/:id', auth, updateUserProfile)
 
 
 //APPOINTMETS
 
 //POST
-app.post('/api/appointments/create', auth, createAppointments)  
+app.post('/api/appointments/create', auth, createAppointments)
 
 //UPDATE
-app.put('/api/appointments/change/:id', auth, updateAppointments)   
+app.put('/api/appointments/change/:id', auth, updateAppointments)
 
 //GET
-app.get('/api/appointments/user', auth, getAppointmentsUser) 
+app.get('/api/appointments/user', auth, getAppointmentsUser)
 app.get('/api/appointments/:id', auth, getAppointmentdById)      

@@ -5,7 +5,7 @@ import { Users } from "../models/Users";
 export const usersSeeder = async () => {
     try {
         await AppDataSource.initialize();
-        
+
         const user = new Users();
         user.id = 1;
         user.email = "user@user.com";
@@ -30,7 +30,7 @@ export const usersSeeder = async () => {
         console.log("==========================");
         console.log("Users seeder successfully");
         console.log("==========================");
-        
+
     } catch (error: any) {
         console.error("==========================");
         console.error('ERROR USER SEEDER', error.message);

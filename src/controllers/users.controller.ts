@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { Users } from "../database/models/Users";
 
 //GET USERS
-
 export const getUsers = async (req: Request, res: Response) => {
     try {
         // 1.recuperar de la bd los usuarios
@@ -13,7 +12,6 @@ export const getUsers = async (req: Request, res: Response) => {
                 }
             }
         )
-
         //2.responder
         res.json(
             {
@@ -22,7 +20,6 @@ export const getUsers = async (req: Request, res: Response) => {
                 data: users
             }
         )
-
     } catch (error) {
         res.status(500).json(
             {
@@ -61,7 +58,6 @@ export const getUserProfile = async (req: Request, res: Response) => {
                 data: user
             }
         )
-
     } catch (error) {
         res.status(500).json(
             {
@@ -72,9 +68,7 @@ export const getUserProfile = async (req: Request, res: Response) => {
     }
 }
 
-
 //UPDATE USER PROFILE
-
 export const updateUserProfile = async (req: Request, res: Response) => {
     try {
         //1.recuperar informacion
@@ -88,7 +82,6 @@ export const updateUserProfile = async (req: Request, res: Response) => {
             },
             body
         )
-
         //3.responder
         res.status(200).json(
             {
