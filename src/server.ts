@@ -32,7 +32,7 @@ AppDataSource.initialize()
 app.post('/api/services', auth, isAdmin, createServices)
 
 //GET
-app.get('/api/services', auth, isAdmin, getServices)
+app.get('/api/services', getServices)
 
 //UPDATE
 app.put('/api/services/:id', auth, isAdmin, updateServicesById)

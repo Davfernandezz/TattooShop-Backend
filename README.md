@@ -1,6 +1,6 @@
 # TattooShop Backend🖋️
 <br>
-Welcome to my TattooShop Backend project! 📈
+Welcome to my TattooShop Backend project, I hope you like it! 📈
 <br><br>
 <a>
 <img src="https://user-images.githubusercontent.com/74038190/221352987-68da234d-4d62-4e9d-9d7f-098dc657c2dc.gif" width="550">
@@ -87,8 +87,8 @@ Used technology:
 1. Clone the repository:
 2. ` $ npm install `
 3. We connect our repository with the database: 
-4. ``` $ Ejecutamos las migraciones ``` 
-5. ``` $ Ejecutamos los seeders ``` 
+4. ``` $ We execute the migrations ``` 
+5. ``` $ We run the seeders ``` 
 6. ``` $ npm run dev ``` 
 7. ...
 
@@ -176,7 +176,7 @@ Used technology:
 <details>
 <summary>Services</summary>
 
-- **View all services** (IS ADMIN)
+- **View all services**
 
           GET http://localhost:4000/api/services
 
@@ -313,6 +313,7 @@ Used technology:
 ## Future functionalities
 [ ] Add the tattoo artists table.
 [ ] Implement migration, model and role controller.
+[ ] ...
 
 
 ## Development:
