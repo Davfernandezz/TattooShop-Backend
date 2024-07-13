@@ -94,7 +94,7 @@ Used technology:
 
 ## Endpoints
 <details>
-<summary>Authentication</summary>
+<summary>Authentication🔑</summary>
 
 - **Register user**
 
@@ -125,7 +125,7 @@ Used technology:
     ```
 </details>
 <details>
-<summary>Users</summary>
+<summary>Users🧑🏻</summary>
 
 - **View all users** (IS ADMIN)
 
@@ -174,7 +174,7 @@ Used technology:
 
 </details>
 <details>
-<summary>Services</summary>
+<summary>Services🖋️</summary>
 
 - **View all services**
 
@@ -242,7 +242,7 @@ Used technology:
 
 </details>
 <details>
-<summary>Appointments</summary>
+<summary>Appointments📅</summary>
 
 - **Create appointment**
 
@@ -311,7 +311,7 @@ Used technology:
 </details>
 
 ## Future functionalities
-[ ] Add the tattoo artists table.
+[ ]Add the tattoo artists table.
 [ ] Implement migration, model and role controller.
 [ ] ...
 
