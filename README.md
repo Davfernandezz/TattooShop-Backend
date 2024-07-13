@@ -1,7 +1,7 @@
 # TattooShop Backend🖋️
 <br>
 <a>
-<img src="https://user-images.githubusercontent.com/74038190/221352987-68da234d-4d62-4e9d-9d7f-098dc657c2dc.gif" width="450">
+<img src="https://user-images.githubusercontent.com/74038190/221352987-68da234d-4d62-4e9d-9d7f-098dc657c2dc.gif" width="550">
 </a>
 <br><br>
 
@@ -23,7 +23,7 @@
 </details>
 <br>
 
-## Description
+## Description📚
 This project consists of the recreation of a tattoo studio in which users will be able to register in the application, log in and access their personal area. Within their area, they will be able to view a list of scheduled appointments for tattoo and piercing services, as well as create new appointments for various services offered by the studio, such as:
 
 - **Custom Tattoos**:
@@ -37,7 +37,7 @@ We offer professional services for the placement of piercings and dilators. Our 
 - **Sale of piercings and other items**:
 In addition to our application services, we offer a selection of piercings and other body art related items. Customers can purchase quality products for complement your unique style.
 
-## Objetive
+## Objetive🎯
 The objective of this project is to adapt to the work done by TypeScript together with relational databases and learn to get along with Express JS, Node, Bcrypt and Jsonwebtoken. 
 With the tools I just mentioned, I have completed a list of endpoints, migrations, models and seeders, taking into account different roles with their respective permissions.
 
@@ -94,11 +94,71 @@ Used technology:
 <details>
 <summary>Authentication</summary>
 
+- Register user
+
+          POST http://localhost:4000/api/register
+
+    body:
+
+    ```js
+        {
+            "email": "david@david.com",
+            "password": "123456789"
+        }
+    ```
+
+- Login user	
+
+          POST http://localhost:4000/api/login
+
+    body:
+
+    ```js
+        {
+            "email": "david@david.com",
+            "password": "123456789"
+        }
+    ```
 </details>
 <details>
 <summary>Users</summary>
 
+- View all users
 
+          GET http://localhost:4000/api/users
+
+    auth:
+
+    ```js
+        your token
+    ```
+
+- View user profile
+
+          GET http://localhost:4000/api/users/profile
+
+    auth:
+
+    ```js
+        your token
+    ```
+- Update user profile
+
+          PUT http://localhost:4000/api/profile/update/:id
+
+    auth:
+
+    ```js
+        your token
+    ```
+
+    body:
+
+    ```js
+        {
+            info you want to change goes here
+        }
+    ```
 </details>
 <details>
 <summary>Services</summary>
@@ -113,8 +173,7 @@ Used technology:
 
 ## Future functionalities
 [ ] Add the tattoo artists table
-[ ] Add logs with winston
-[ ] Request validations with express-validator
+[ ] Implement migration, model and role controller.
 
 
 ## Webgrafia:
@@ -123,7 +182,7 @@ To achieve my goal I have collected information from:
 
 ## Appreciations:
 
-
+I would like to dedicate my thanks to the teachers at Geeks Hubs as well as my day to day colleagues with whom we can help each other with our problems.
 
 
 ## Contact
