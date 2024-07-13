@@ -1,5 +1,7 @@
 # TattooShop Backend🖋️
 <br>
+Welcome to my TattooShop Backend project! 📈
+<br><br>
 <a>
 <img src="https://user-images.githubusercontent.com/74038190/221352987-68da234d-4d62-4e9d-9d7f-098dc657c2dc.gif" width="550">
 </a>
@@ -16,7 +18,7 @@
     <li><a href="#local-installation">Local installation</a></li>
     <li><a href="#endpoints">Endpoints</a></li>
     <li><a href="#future-functionalities">Future functionalities</a></li>
-    <li><a href="#webgrafia">Webgrafia</a></li>
+    <li><a href="#development">Development</a></li>
     <li><a href="#appreciations">Appreciations</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -43,7 +45,7 @@ With the tools I just mentioned, I have completed a list of endpoints, migration
 
 ## Deploy 🚀
 <div align="center">
-    <a href="https://tattooshop-backend.zeabur.app"><strong>Url a producción </strong></a>🚀🚀🚀
+    <a href="https://tattooshop-backend.zeabur.app/"><strong> Click here! </strong></a>🚀🚀🚀
 </div>
 
 ## Stack
@@ -94,7 +96,7 @@ Used technology:
 <details>
 <summary>Authentication</summary>
 
-- Register user
+- **Register user**
 
           POST http://localhost:4000/api/register
 
@@ -107,7 +109,9 @@ Used technology:
         }
     ```
 
-- Login user	
+<br>
+
+- **Login user**	
 
           POST http://localhost:4000/api/login
 
@@ -123,62 +127,201 @@ Used technology:
 <details>
 <summary>Users</summary>
 
-- View all users
+- **View all users** (IS ADMIN)
 
           GET http://localhost:4000/api/users
 
     auth:
 
     ```js
-        your token
+        auth token
     ```
 
-- View user profile
+<br>
+
+- **View user profile**
 
           GET http://localhost:4000/api/users/profile
 
     auth:
 
     ```js
-        your token
+        auth token
     ```
-- Update user profile
+
+<br>
+
+- **Update user profile**
 
           PUT http://localhost:4000/api/profile/update/:id
-
-    auth:
-
-    ```js
-        your token
-    ```
 
     body:
 
     ```js
         {
-            info you want to change goes here
+        "first_name": "Carlos",
+        "last_name": "Leon",
+        "email": "carlos@carlos.com",
+        "password": "123498765"
         }
     ```
+
+    auth:
+
+    ```js
+        auth token
+    ```
+
 </details>
 <details>
 <summary>Services</summary>
 
+- **View all services** (IS ADMIN)
+
+          GET http://localhost:4000/api/services
+
+    auth:
+
+    ```js
+        auth token
+    ```
+
+<br>
+
+- **Create service** (IS ADMIN)
+
+          POST http://localhost:4000/api/services
+
+    body:
+
+    ```js
+        {
+        "service_name": "Tatuajes personalizados",
+        "description": "Los clientes tendrán la libertad de seleccionar motivos y diseños únicos, personalizando completamente su experiencia de tatuaje de acuerdo a sus preferencias y gustos."
+        }
+    ```
+
+    auth:
+
+    ```js
+        auth token
+    ```
+
+<br>
+
+- **Update service** (IS ADMIN)
+
+          PUT http://localhost:4000/api/services/:id
+
+    body:
+
+    ```js
+        {
+        "service_name": "update",
+        "description": "update"
+        }
+    ```
+
+    auth:
+
+    ```js
+        auth token
+    ```
+
+<br>
+
+- **Delete service** (IS ADMIN)
+
+          DELETE http://localhost:4000/api/services/:id
+
+    auth:
+
+    ```js
+        auth token
+    ```
 
 </details>
 <details>
 <summary>Appointments</summary>
 
+- **Create appointment**
+
+          POST http://localhost:4000/api/appointments/create
+
+    body:
+
+    ```js
+        {
+        "date": "2024/07/15",
+        "service_id": "1"
+        }
+    ```
+
+    auth:
+
+    ```js
+        auth token
+    ```
+
+<br>
+
+- **Update my appointment**
+
+          PUT http://localhost:4000/api/appointments/change/:id
+
+    body:
+
+    ```js
+        {
+        "date": "2024/07/20",
+        "service_id": "3"
+        }
+    ```
+
+    auth:
+
+    ```js
+        auth token
+    ```
+
+<br>
+
+- **Retrieve appointment by id**
+
+          GET http://localhost:4000/api/appointments/:id
+
+    auth:
+
+    ```js
+        auth token
+    ```
+
+<br>
+
+- **View appointments user**
+
+          GET http://localhost:4000/api/appointments/user
+
+    auth:
+
+    ```js
+        auth token
+    ```
 
 </details>
 
 ## Future functionalities
-[ ] Add the tattoo artists table
+[ ] Add the tattoo artists table.
 [ ] Implement migration, model and role controller.
 
 
-## Webgrafia:
-To achieve my goal I have collected information from:
+## Development:
 
+```js
+const developer = "DavidFernandez";
+
+console.log("Developed by: " DavidFernandez);
+```
 
 ## Appreciations:
 

@@ -29,7 +29,7 @@ AppDataSource.initialize()
 //SERVICES
 
 //POST
-app.post('/api/services', createServices)
+app.post('/api/services', auth, isAdmin, createServices)
 
 //GET
 app.get('/api/services', auth, isAdmin, getServices)
