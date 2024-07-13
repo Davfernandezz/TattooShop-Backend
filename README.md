@@ -1,7 +1,7 @@
 # TattooShop Backend🖋️
-<br>
+
 Welcome to my TattooShop Backend project, I hope you like it! 📈
-<br><br>
+
 <a>
 <img src="https://user-images.githubusercontent.com/74038190/221352987-68da234d-4d62-4e9d-9d7f-098dc657c2dc.gif" width="550">
 </a>
@@ -311,9 +311,9 @@ Used technology:
 </details>
 
 ## Future functionalities
-[ ]Add the tattoo artists table.
-[ ] Implement migration, model and role controller.
-[ ] ...
+- Add the tattoo artists table.
+- Implement migration, model and role controller.
+- ...
 
 
 ## Development:
