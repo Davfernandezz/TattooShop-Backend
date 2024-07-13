@@ -12,7 +12,7 @@ Welcome to my TattooShop Backend project, I hope you like it! 📈
   <ol>
     <li><a href="#description">Description</a></li>
     <li><a href="#objetive">Objetive</a></li>
-    <li><a href="#deploy-🚀">Deploy</a></li>
+    <li><a href="#deploy-">Deploy</a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#diagram-bd">Diagram</a></li>
     <li><a href="#local-installation">Local installation</a></li>
