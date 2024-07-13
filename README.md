@@ -48,7 +48,7 @@ With the tools I just mentioned, I have completed a list of endpoints, migration
     <a href="https://tattooshop-backend.zeabur.app/"><strong> Click here! </strong></a>🚀🚀🚀
 </div>
 
-## Stack
+## Stack📒
 Used technology:
 <div align="center">
 <a>
@@ -80,19 +80,26 @@ Used technology:
 
 
 
-## Diagram BD
+## Diagram BD📋
+
 <img width="1423" src="./img/diagrama.JPG">
 
-## Local installation
+    - "Roles" to "Users": One-to-many relationship where one role can have many users.
+
+    - "Users" to "Appointments": One-to-many relationship where one user can have many appointments.
+
+    - "Services" to "Appointments": One-to-many relationship where one service can have many appointments.
+
+## Local installation🧾
 1. Clone the repository:
 2. ` $ npm install `
 3. We connect our repository with the database: 
-4. ``` $ We execute the migrations ``` 
-5. ``` $ We run the seeders ``` 
-6. ``` $ npm run dev ``` 
+4. ``` $ npm run dev ``` 
+5. ``` $ We run the seeders $ npm run db:seed ``` 
+6. ``` $ We execute the migrations $ npm run migrate ``` 
 7. ...
 
-## Endpoints
+## Endpoints🧩
 <details>
 <summary>Authentication🔑</summary>
 
@@ -307,16 +314,15 @@ Used technology:
     ```js
         auth token
     ```
-
 </details>
 
-## Future functionalities
+## Future functionalities⏭️
 - Add the tattoo artists table.
 - Implement migration, model and role controller.
 - ...
 
 
-## Development:
+## Development👨🏻‍💻
 
 ```js
 const developer = "DavidFernandez";
@@ -324,11 +330,11 @@ const developer = "DavidFernandez";
 console.log("Developed by: " DavidFernandez);
 ```
 
-## Appreciations:
+## Appreciations💯
 
 I would like to dedicate my thanks to the teachers at Geeks Hubs as well as my day to day colleagues with whom we can help each other with our problems.
 
 
-## Contact
+## Contact📲
 - **David Fernandez Valle**
   - [GitHub](https://github.com/Davfernandezz)
