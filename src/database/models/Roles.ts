@@ -2,12 +2,12 @@ import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from "t
 import { Users } from "./Users"
 
 @Entity('roles')
-export class Roles extends BaseEntity{
+export class Roles extends BaseEntity {
 
     @PrimaryGeneratedColumn()
     id!: number
 
-    @Column({name: "name"})
+    @Column({ name: "name" })
     name!: string
 
     @OneToMany(() => Users, (users) => users.roles)

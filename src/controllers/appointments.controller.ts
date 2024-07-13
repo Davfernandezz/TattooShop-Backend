@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { Appointments } from "../database/models/Appointments";
 
 //POST
-
 export const createAppointments = async (req: Request, res: Response) => {
     try {
         //1.recuperar informacion
@@ -19,7 +18,6 @@ export const createAppointments = async (req: Request, res: Response) => {
                 }
             )
         }
-
         //3.guardar en la base de datos
         const newAppointment = await Appointments.create(
             {
@@ -37,7 +35,6 @@ export const createAppointments = async (req: Request, res: Response) => {
                 data: newAppointment
             }
         )
-
     } catch (error) {
         res.status(500).json(
             {
@@ -50,9 +47,7 @@ export const createAppointments = async (req: Request, res: Response) => {
     }
 }
 
-
 //UPDATE
-
 export const updateAppointments = async (req: Request, res: Response) => {
     try {
         //1.recuperar informacion
@@ -67,7 +62,7 @@ export const updateAppointments = async (req: Request, res: Response) => {
                 }
             }
         )
-
+        //3.validacion
         if (!appointments) {
             return res.status(404).json(
                 {
@@ -76,7 +71,6 @@ export const updateAppointments = async (req: Request, res: Response) => {
                 }
             )
         }
-
         const appointmentUpdated = await Appointments.update(
             {
                 id: parseInt(paramsID)
@@ -84,7 +78,7 @@ export const updateAppointments = async (req: Request, res: Response) => {
             body
         )
 
-        //3.responder
+        //4.responder
         res.status(200).json(
             {
                 success: true,
@@ -92,7 +86,6 @@ export const updateAppointments = async (req: Request, res: Response) => {
                 data: appointmentUpdated
             }
         )
-
     } catch (error) {
         res.status(500).json(
             {
@@ -105,16 +98,13 @@ export const updateAppointments = async (req: Request, res: Response) => {
     }
 }
 
-
 //GET
-
 export const getAppointmentdById = async (req: Request, res: Response) => {
     try {
         //1.recuperar informacion
         const paramsId = req.params.id;
         const userID = req.tokenData.id;
 
-       // 1. recuperar Id de la base de datos
         const appointments = await Appointments.findOne(
             {
                 where: {
@@ -125,6 +115,7 @@ export const getAppointmentdById = async (req: Request, res: Response) => {
             }
         )
 
+        //2.validacion
         if (!paramsId) {
             return res.status(404).json(
                 {
@@ -133,7 +124,6 @@ export const getAppointmentdById = async (req: Request, res: Response) => {
                 }
             )
         }
-
         //3.responder
         res.json(
             {
@@ -142,27 +132,22 @@ export const getAppointmentdById = async (req: Request, res: Response) => {
                 data: appointments
             }
         )
-
     } catch (error) {
         res.status(500).json(
             {
                 success: false,
-                message: "error retrieving appointment",
+                message: "error retrieving appointment by id",
                 error: error
             }
         )
-
     }
 }
 
-
 //GET
-
 export const getAppointmentsUser = async (req: Request, res: Response) => {
     try {
         //1.recuperar informacion
         const userId = req.tokenData.id;
-
         const appointments = await Appointments.find(
             {
                 select: {
@@ -181,11 +166,10 @@ export const getAppointmentsUser = async (req: Request, res: Response) => {
                 {
                     user_id: userId
                 },
-
                 relations: { users: {}, services: {} }
             }
         );
-
+        //2.responder
         res.status(200).json(
             {
                 success: true,
@@ -193,12 +177,11 @@ export const getAppointmentsUser = async (req: Request, res: Response) => {
                 data: appointments
             }
         )
-
     } catch (error) {
         res.status(500).json(
             {
                 susscess: false,
-                message: "error retrieving appointment",
+                message: "error retrieving user appointments",
                 error: error
             }
         )

@@ -2,10 +2,8 @@ import { Request, Response } from "express";
 import { Services } from "../database/models/Services";
 
 //POST
-
 export const createServices = async (req: Request, res: Response) => {
     try {
-
         //1.recuperar informacion
         const service_name = req.body.service_name;
         const description = req.body.description;
@@ -19,7 +17,6 @@ export const createServices = async (req: Request, res: Response) => {
                 }
             )
         }
-
         //3.guardar en la base de datos
         const newService = await Services.create(
             {
@@ -36,7 +33,6 @@ export const createServices = async (req: Request, res: Response) => {
                 data: newService
             }
         )
-
     } catch (error) {
         res.status(500).json(
             {
@@ -48,12 +44,9 @@ export const createServices = async (req: Request, res: Response) => {
     }
 }
 
-
 //GET
-
 export const getServices = async (req: Request, res: Response) => {
     try {
-
         //1.recuperar informacion
         const services = await Services.find()
 
@@ -65,7 +58,6 @@ export const getServices = async (req: Request, res: Response) => {
                 data: services
             }
         )
-
     } catch (error) {
         return res.status(500).json({
             success: false,
@@ -77,10 +69,8 @@ export const getServices = async (req: Request, res: Response) => {
 
 
 //UPDATE
-
 export const updateServicesById = async (req: Request, res: Response) => {
     try {
-
         //1.recuperar informacion
         const serviceIdToUpdate = req.params.id
         const body = req.body
@@ -92,7 +82,6 @@ export const updateServicesById = async (req: Request, res: Response) => {
             },
             body
         )
-
         //3.responder
         res.status(200).json(
             {
@@ -112,18 +101,14 @@ export const updateServicesById = async (req: Request, res: Response) => {
     }
 }
 
-
 //DELETE
-
 export const deleteServicesById = async (req: Request, res: Response) => {
     try {
-
         //1.recuperar informacion
         const serviceToBeDeleted = Number(req.params.id)
 
         //2.eliminarlo de la base de datos
         const serviceDeleted = await Services.delete(serviceToBeDeleted)
-
         if (!serviceDeleted.affected) {
             return res.status(404).json(
                 {
@@ -132,19 +117,17 @@ export const deleteServicesById = async (req: Request, res: Response) => {
                 }
             )
         }
-
         //3.responder
         return res.status(200).json({
             success: true,
             message: "service deleted successfully",
             data: serviceDeleted
         })
-
     } catch (error) {
         res.status(500).json(
             {
                 success: false,
-                message: "error deleting service! Please, try again!",
+                message: "error deleting service by id",
                 error: error
             }
         )

@@ -6,8 +6,8 @@ export interface TokenDecoded {
 
 declare global {
     namespace Express {
-       export interface Request {
-        tokenData: TokenDecoded;
-       }
+        export interface Request {
+            tokenData: TokenDecoded;
+        }
     }
 }
