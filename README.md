@@ -26,7 +26,7 @@ Welcome to my TattooShop Backend project, I hope you like it! 📈
 <br>
 
 ## Description📚
-This project consists of the recreation of a tattoo studio in which users will be able to register in the application, log in and access their personal area. Within their area, they will be able to view a list of scheduled appointments for tattoo and piercing services, as well as create new appointments for various services offered by the studio, such as:
+This project consists of the recreation of a tattoo studio in which users will be able to register in the application, log in and access their personal area. Within your area, you will be able to view a list of scheduled appointments for tattoo and piercing services, as well as create new appointments for various services offered by the studio, such as:
 
 - **Custom Tattoos**:
 Clients will have the freedom to select unique motifs and designs, completely customizing their tattoo experience according to their preferences and tastes.
@@ -40,8 +40,8 @@ We offer professional services for the placement of piercings and dilators. Our 
 In addition to our application services, we offer a selection of piercings and other body art related items. Customers can purchase quality products for complement your unique style.
 
 ## Objetive🎯
-The objective of this project is to adapt to the work done by TypeScript together with relational databases and learn to get along with Express JS, Node, Bcrypt and Jsonwebtoken. 
-With the tools I just mentioned, I have completed a list of endpoints, migrations, models and seeders, taking into account different roles with their respective permissions.
+The objective of this project is to adapt to the work that TypeScript does together with relational databases and learn how to get by with Express JS, Node, Bcrypt and Jsonwebtoken. 
+With the tools I just mentioned, I have completed a list of endpoints, migrations, models, and seeders, taking into account different roles with their respective permissions.
 
 ## Deploy 🚀
 <div align="center">
@@ -91,12 +91,13 @@ Used technology:
     - "Services" to "Appointments": One-to-many relationship where one service can have many appointments.
 
 ## Local installation🧾
-1. Clone the repository:
-2. ` $ npm install `
-3. We connect our repository with the database: 
+1. Install docker and create a mysql container
+1. Clone the repository
+2.  ``` $ npm install  ```
+3. We connect our repository with the database
 4. ``` $ npm run dev ``` 
-5. ``` $ We run the seeders $ npm run db:seed ``` 
-6. ``` $ We execute the migrations $ npm run migrate ``` 
+5. ``` $ We execute the migrations $ npm run migrate ``` 
+6. ``` $ We run the seeders $ npm run db:seed ``` 
 7. ...
 
 ## Endpoints🧩
@@ -332,7 +333,7 @@ console.log("Developed by: " DavidFernandez);
 
 ## Appreciations💯
 
-I would like to dedicate my thanks to the teachers at Geeks Hubs as well as my day to day colleagues with whom we can help each other with our problems.
+I would like to dedicate my thanks to the teachers at Geeks Hubs as well as my day to day peers with whom we can help each other with our problems.
 
 
 ## Contact📲
