@@ -78,11 +78,17 @@ export const updateUserProfile = async (req: Request, res: Response) => {
         let newpassword
         // const {last_name} = req.body
         // const body = req.body
-
+        if (password_hash.length < 8 || password_hash.length > 15) {
+            return res.status(400).json(
+                {
+                    success: false,
+                    message: "password is not valid, 8 to 15 charachters must be needed"
+                }
+            )
+        }
         if (password_hash) {
             newpassword = bcrypt.hashSync(password_hash, 10)
         }
-
         //2.actualizar en base de datos
         const usersUpdated = await Users.update(
             {
