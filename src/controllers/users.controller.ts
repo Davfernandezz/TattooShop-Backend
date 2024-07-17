@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { Users } from "../database/models/Users";
+import bcrypt from 'bcrypt';
 
 //GET USERS
 export const getUsers = async (req: Request, res: Response) => {
@@ -73,14 +74,26 @@ export const updateUserProfile = async (req: Request, res: Response) => {
     try {
         //1.recuperar informacion
         const userIdToUpdate = req.params.id
-        const body = req.body
+        const { first_name, last_name, email, password_hash } = req.body
+        let newpassword
+        // const {last_name} = req.body
+        // const body = req.body
+
+        if (password_hash) {
+            newpassword = bcrypt.hashSync(password_hash, 10)
+        }
 
         //2.actualizar en base de datos
         const usersUpdated = await Users.update(
             {
                 id: parseInt(userIdToUpdate)
             },
-            body
+            {
+                first_name: first_name,
+                last_name: last_name,
+                email: email,
+                password_hash: newpassword
+            }
         )
         //3.responder
         res.status(200).json(
