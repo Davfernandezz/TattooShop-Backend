@@ -18,6 +18,14 @@ export const createAppointments = async (req: Request, res: Response) => {
                 }
             )
         }
+        const currentDate = new Date();
+		const appointmentDateObject = new Date(appointmentDate);
+		if (appointmentDateObject < currentDate) {
+		  return res.status(400).json({
+			success: false,
+			message: 'cannot create appointment on a previous date',
+		  });
+		}
         //3.guardar en la base de datos
         const newAppointment = await Appointments.create(
             {
