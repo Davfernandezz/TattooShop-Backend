@@ -74,7 +74,7 @@ export const updateUserProfile = async (req: Request, res: Response) => {
     try {
         const userId = req.tokenData.id;
         const { email, first_name, last_name, password_hash } = req.body;
-        let passwordHashed;
+        let hashedPassword;
         if (password_hash) {
                 if (password_hash.length < 8 || password_hash.length > 15) {
                 return res.status(400).json({
@@ -82,7 +82,7 @@ export const updateUserProfile = async (req: Request, res: Response) => {
                     message: "password is not valid, 8 to 15 charachters must be needed"
                 });
             }
-            passwordHashed = bcrypt.hashSync(password_hash, 12);
+            hashedPassword = bcrypt.hashSync(password_hash, 10);
         }
         const user = await Users.findOne({
             where: {
@@ -99,7 +99,7 @@ export const updateUserProfile = async (req: Request, res: Response) => {
             email: email,
             first_name: first_name,
             last_name: last_name,
-            password_hash: passwordHashed
+            password_hash: hashedPassword
         };
         await Users.update(
             {
