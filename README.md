@@ -161,7 +161,7 @@ Used technology:
 
 - **Update user profile**
 
-          PUT http://localhost:4000/api/profile/update/:id
+          PUT http://localhost:4000/api/profile/update
 
     body:
 
