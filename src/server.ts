@@ -55,7 +55,7 @@ app.get('/api/users', auth, isAdmin, getUsers)
 app.get('/api/users/profile', auth, getUserProfile)
 
 //PUT
-app.put('/api/profile/update/:id', auth, updateUserProfile)
+app.put('/api/profile/update', auth, updateUserProfile)
 
 
 //APPOINTMETS

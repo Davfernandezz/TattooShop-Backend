@@ -72,50 +72,51 @@ export const getUserProfile = async (req: Request, res: Response) => {
 //UPDATE USER PROFILE
 export const updateUserProfile = async (req: Request, res: Response) => {
     try {
-        //1.recuperar informacion
-        const userIdToUpdate = req.params.id
-        const { first_name, last_name, email, password_hash } = req.body
-        let newpassword
-        // const {last_name} = req.body
-        // const body = req.body
-        if (password_hash.length < 8 || password_hash.length > 15) {
-            return res.status(400).json(
-                {
+        const userId = req.tokenData.id;
+        const { email, first_name, last_name, password_hash } = req.body;
+        let passwordHashed;
+        if (password_hash) {
+                if (password_hash.length < 8 || password_hash.length > 15) {
+                return res.status(400).json({
                     success: false,
                     message: "password is not valid, 8 to 15 charachters must be needed"
-                }
-            )
-        }
-        if (password_hash) {
-            newpassword = bcrypt.hashSync(password_hash, 10)
-        }
-        //2.actualizar en base de datos
-        const usersUpdated = await Users.update(
-            {
-                id: parseInt(userIdToUpdate)
-            },
-            {
-                first_name: first_name,
-                last_name: last_name,
-                email: email,
-                password_hash: newpassword
+                });
             }
-        )
-        //3.responder
-        res.status(200).json(
-            {
-                success: true,
-                message: "user profile updated",
-                data: usersUpdated
+            passwordHashed = bcrypt.hashSync(password_hash, 12);
+        }
+        const user = await Users.findOne({
+            where: {
+                id: userId
             }
-        )
-    } catch (error) {
-        res.status(500).json(
-            {
+        });
+        if (!user) {
+            return res.status(404).json({
                 success: false,
-                message: "user profile cant be updated",
-                error: error
-            }
-        )
+                message: "user not found"
+            });
+        }
+        const usersUpdated: any = {
+            email: email,
+            first_name: first_name,
+            last_name: last_name,
+            password_hash: passwordHashed
+        };
+        await Users.update(
+            {
+                id: userId
+            },
+            usersUpdated
+    );
+        return res.status(200).json({
+            success: true,
+            message: "user profile updated",
+            data: usersUpdated
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "user profile cant be updated",
+            error: error
+        });
     }
 }
