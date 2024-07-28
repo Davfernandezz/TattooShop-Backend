@@ -68,7 +68,7 @@ export const login = async (req: Request, res: Response) => {
 
         // 2.validar la info
         if (!email || !password) {
-            return res.json(400).json(
+            return res.status(400).json(
                 {
                     success: false,
                     message: "email and password must be needed"
@@ -104,6 +104,7 @@ export const login = async (req: Request, res: Response) => {
             {
                 id: user.id,
                 role_id: user.role_id,
+                first_name: user.first_name,
                 email: user.email
             },
             process.env.JWT_SECRET as string,

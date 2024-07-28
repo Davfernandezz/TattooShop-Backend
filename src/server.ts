@@ -1,14 +1,18 @@
 import 'dotenv/config';
+import cors from 'cors'
 import express from 'express';
 import { AppDataSource } from './database/db';
 import { createServices, deleteServicesById, getServices, updateServicesById } from './controllers/services.controller';
-import { getUserProfile, getUsers, updateUserProfile } from './controllers/users.controller';
+import { deleteUserById, getUserProfile, getUsers, updateUserProfile } from './controllers/users.controller';
 import { login, register } from './controllers/auth.controller';
 import { auth } from './middlewares/auth';
 import { isAdmin } from './middlewares/isAdmin';
-import { createAppointments, getAppointmentdById, getAppointmentsUser, updateAppointments } from './controllers/appointments.controller';
+import { createAppointments, deleteAppointmentById, getAppointmentdById, getAppointmentsUser, updateAppointments } from './controllers/appointments.controller';
 
 const app = express();
+
+//CORS
+app.use(cors())
 
 app.use(express.json())
 
@@ -57,6 +61,9 @@ app.get('/api/users/profile', auth, getUserProfile)
 //PUT
 app.put('/api/profile/update', auth, updateUserProfile)
 
+//DELETE
+app.delete('/api/users/:id', auth, isAdmin, deleteUserById)
+
 
 //APPOINTMETS
 
@@ -69,3 +76,6 @@ app.put('/api/appointments/change/:id', auth, updateAppointments)
 //GET
 app.get('/api/appointments/user', auth, getAppointmentsUser)
 app.get('/api/appointments/:id', auth, getAppointmentdById)      
+
+//DELETE
+app.delete("/api/appointments/:id", auth, deleteAppointmentById);

@@ -9,7 +9,10 @@ export const getUsers = async (req: Request, res: Response) => {
         const users = await Users.find(
             {
                 select: {
+                    id: true,
                     email: true,
+                    first_name: true,
+                    created_at: true
                 }
             }
         )
@@ -45,6 +48,7 @@ export const getUserProfile = async (req: Request, res: Response) => {
                 select: {
                     email: true,
                     created_at: true,
+                    first_name: true,
                 },
                 where: {
                     id: userId
@@ -74,9 +78,16 @@ export const updateUserProfile = async (req: Request, res: Response) => {
     try {
         const userId = req.tokenData.id;
         const { email, first_name, last_name, password_hash } = req.body;
+        const fieldsToUpdate: { first_name?: string, email?: string } = {}
         let hashedPassword;
+        if (first_name) {
+            fieldsToUpdate.first_name = first_name
+        }
+        if (email) {
+            fieldsToUpdate.email = email
+        }
         if (password_hash) {
-                if (password_hash.length < 8 || password_hash.length > 15) {
+            if (password_hash.length < 8 || password_hash.length > 15) {
                 return res.status(400).json({
                     success: false,
                     message: "password is not valid, 8 to 15 charachters must be needed"
@@ -105,8 +116,8 @@ export const updateUserProfile = async (req: Request, res: Response) => {
             {
                 id: userId
             },
-            usersUpdated
-    );
+            fieldsToUpdate
+        );
         return res.status(200).json({
             success: true,
             message: "user profile updated",
@@ -120,3 +131,24 @@ export const updateUserProfile = async (req: Request, res: Response) => {
         });
     }
 }
+
+//DELETE
+export const deleteUserById = async (req: Request, res: Response) => {
+    try {
+        const userId = +req.params.id;
+        const user = await Users.delete({
+            id: userId,
+        });
+        res.status(200).json({
+            success: true,
+            message: "User successfully deleted",
+            data: user
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error deleting user",
+            error: error
+        });
+    }
+};

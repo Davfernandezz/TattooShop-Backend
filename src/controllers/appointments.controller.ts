@@ -3,46 +3,54 @@ import { Appointments } from "../database/models/Appointments";
 
 //POST
 export const createAppointments = async (req: Request, res: Response) => {
-    try {
-        //1.recuperar informacion
+     try {
+        //1. recuperar información
         const appointmentDate = req.body.date;
         const userID = req.tokenData.id;
         const serviceID = req.body.service_id;
-
-        //2.validacion
+        
+        //2. validación
         if (!appointmentDate || !serviceID) {
             return res.status(400).json(
                 {
                     success: false,
-                    message: "date and service is required"
+                    message: "date and service are required"
                 }
-            )
+            );
         }
         const currentDate = new Date();
-		const appointmentDateObject = new Date(appointmentDate);
-		if (appointmentDateObject < currentDate) {
-		  return res.status(400).json({
-			success: false,
-			message: 'cannot create appointment on a previous date',
-		  });
-		}
-        //3.guardar en la base de datos
-        const newAppointment = await Appointments.create(
-            {
-                date: appointmentDate,
-                user_id: userID,
-                service_id: serviceID
-            }
-        ).save();
-
-        //5.responder
+        const appointmentDateObject = new Date(appointmentDate);
+        if (appointmentDateObject < currentDate) {
+            return res.status(400).json({
+                success: false,
+                message: 'cannot create appointment on a previous date',
+            });
+        }
+        //3. guardar en la base de datos
+        const newAppointment = await Appointments.create({
+            date: appointmentDate,
+            user_id: userID,
+            service_id: serviceID
+        }).save();
+        //4. obtener información del servicio
+        const appointmentWithService = await Appointments.findOne({
+            where: { id: newAppointment.id },
+            relations: { services: true }
+        });
+        if (!appointmentWithService) {
+            return res.status(500).json({
+                success: false,
+                message: 'Failed to retrieve the newly created appointment with service details'
+            });
+        }
+        //5. responder con la cita incluyendo el nombre del servicio
         res.status(201).json(
             {
                 success: true,
                 message: "appointment created successfully",
-                data: newAppointment
+                data: appointmentWithService
             }
-        )
+        );
     } catch (error) {
         res.status(500).json(
             {
@@ -50,8 +58,7 @@ export const createAppointments = async (req: Request, res: Response) => {
                 message: "error creating appointment",
                 error: error
             }
-        )
-
+        );
     }
 }
 
@@ -195,3 +202,24 @@ export const getAppointmentsUser = async (req: Request, res: Response) => {
         )
     }
 }
+
+//DELETE
+export const deleteAppointmentById = async (req: Request, res: Response) => {
+    try {
+        const appointmentId = +req.params.id;
+        const appointment = await Appointments.delete({
+            id: appointmentId,
+        });
+        res.status(200).json({
+            success: true,
+            message: "Appointment successfully deleted",
+            data: appointment
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error deleting appointment",
+            error: error
+        });
+    }
+};
